@@ -702,7 +702,15 @@ this["Handlebars"]["templates"]["signature"] = Handlebars.template({"1":function
     + "</code></pre>\n    </div>\n</div>\n\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.signature : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer;
+  return buffer + "\n\n<h4 class=\"code-sample-title\" data-control data-toggle=\"collapse\" data-target=\"#code-sample-"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\">"
+    + escapeExpression(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"type","hash":{},"data":data}) : helper)))
+    + " Code Sample</h4>\n<div data-content class=\"collapse in\" id=\"code-sample-"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\">\n    <div class=\"tabs-"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\">\n        <ul>\n            <li>Python</li>\n            <li>PHP</li>\n            <li>Ruby</li>\n            <li>.NET</li>\n            <li>JAVA</li>\n        </ul>\n        <div>\n            <div class=\"python\">\n                <pre><code>python</code></pre>\n            </div>\n            <div class=\"php\">\n                <pre><code>php</code></pre>\n            </div>\n            <div class=\"ruby\">\n                <pre><code>ruby</code></pre>\n            </div>\n            <div class=\"net\">\n                <pre><code>net</code></pre>\n            </div>\n            <div class=\"java\">\n                <pre><code>java</code></pre>\n            </div>\n        </div>\n    </div>\n</div>\n";
 },"useData":true});
 this["Handlebars"]["templates"]["status_code"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<td style=\"width: 20px;\"><strong>"
@@ -22588,7 +22596,13 @@ SwaggerUi.Views.SignatureView = Backbone.View.extend({
     'mousedown .snippet': 'snippetToTextArea'
   },
 
-  initialize: function () {
+  initialize: function(options) {
+    console.log(this);
+  },
+
+  onShow: function(){
+    console.log($('.tabs-' + this.model.id));
+    $('.tabs-' + this.model.id).lightTabs();
   },
 
   render: function () {
