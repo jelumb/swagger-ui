@@ -1481,15 +1481,23 @@ body {
 }
 
 @media (min-width: 992px) {
-    .swagger-section #resources_container {
+    .swagger-section #resources_container, .swagger-section #extra_header_docs {
         width: 100%;
         padding-left: 290px
+    }
+
+    #extra_header_docs .big_description {
+        padding: 0 30px;
     }
 }
 
 @media (min-width: 1400px) {
-    .swagger-section #resources_container {
+    .swagger-section #resources_container, .swagger-section #extra_header_docs {
         padding-left: 320px
+    }
+
+    #extra_header_docs .big_description {
+        padding: 0 30px;
     }
 }
 
